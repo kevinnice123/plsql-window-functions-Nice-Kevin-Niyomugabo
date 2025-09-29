@@ -1,4 +1,4 @@
-# plsql-window-functions-Nice-Kevin-Niyomugabo
+<img width="367" height="322" alt="photo 88" src="https://github.com/user-attachments/assets/5612e1d3-4daa-414e-b836-2dcacd23b202" /># plsql-window-functions-Nice-Kevin-Niyomugabo
 # PL/SQL Window Functions - Customer Loyalty Analysis
 
 ## Business Problem Definition
@@ -57,9 +57,10 @@ Transactions Table
  Entity Relationship
 ```
 customers (1) ----< (M) transactions (M) >---- (1) products
+<img width="367" height="322" alt="photo 88" src="https://github.com/user-attachments/assets/2fd29fbb-1990-4064-a031-997018a8df42" />
 
 
-## Window Functions Implementation
+Window Functions Implementation
 
  1. Ranking Functions 
 
@@ -241,9 +242,9 @@ Operational Improvements:
 - Foreign key constraints properly implemented maintaining referential integrity
 
 
-```
 
-## References
+
+ References
 
 1. Oracle Database SQL Language Reference - Window Functions (Oracle Corporation, 2024)
 2. "SQL Performance Explained" by Markus Winand - Window Function Optimization
