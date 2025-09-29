@@ -29,30 +29,35 @@
 
 ### Table Structures
 
-#### Customers Table
+ Customers Table
 - `customer_id` (INT, PK, AUTO_INCREMENT)
 - `name` (VARCHAR(100))
 - `region` (VARCHAR(50))
 - `loyalty_level` (VARCHAR(20), DEFAULT 'Bronze')
+<img width="772" height="425" alt="photo 11" src="https://github.com/user-attachments/assets/ce64199e-b4df-4331-bc8c-c2b307bd703f" />
 
-#### Products Table
+Products Table
 - `product_id` (INT, PK, AUTO_INCREMENT)
 - `name` (VARCHAR(100))
 - `category` (VARCHAR(50))
 - `unit_price` (FLOAT(10,2))
+  <img width="770" height="406" alt="photo 22" src="https://github.com/user-attachments/assets/9d578e1e-383e-4339-98c4-0c09a9958ab7" />
 
-#### Transactions Table
+
+Transactions Table
 - `transaction_id` (INT, PK, AUTO_INCREMENT)
 - `customer_id` (INT, FK → customers.customer_id)
 - `product_id` (INT, FK → products.product_id)
 - `sale_date` (DATE)
 - `quantity` (INT(30))
 - `amount` (FLOAT(12,2))
+  <img width="776" height="425" alt="photo 33" src="https://github.com/user-attachments/assets/c3f6bedc-570c-4678-b7eb-61b251a351b3" />
 
-### Entity Relationship
+
+ Entity Relationship
 ```
 customers (1) ----< (M) transactions (M) >---- (1) products
-```
+
 
 ## Window Functions Implementation
 
@@ -78,26 +83,31 @@ Results:
 <img width="773" height="356" alt="Screenshot 2025-09-29 174451" src="https://github.com/user-attachments/assets/a96469a7-2227-4b8b-9452-bc9739bac902" />
 
 
-Interpretation: Arabica Beans dominate sales across all regions, indicating strong customer preference for premium coffee. Europe shows higher total sales volume and product diversity compared to East Africa, suggesting a more mature market with varied product adoption.
+Interpretation: Arabica Beans dominate sales across all regions, indicating strong customer preference for premium coffee. Europe shows higher total sales volume and 
+
+product diversity compared to East Africa, suggesting a more mature market with varied product adoption.
 
  2. Aggregate Window Functions (Image 1)
 
 Query: Running Monthly Sales Totals
 sql
-SELECT 
-    DATE_FORMAT(sale_date, '%Y-%m') AS sale_month,
+   SELECT 
+   
+    DATE_FORMAT(sale_date, '%Y-%m') AS sale_months
     SUM(amount) AS monthly_sales,
     SUM(SUM(amount)) OVER (ORDER BY DATE_FORMAT(sale_date, '%Y-%m')) AS running_total
 FROM transactions
 GROUP BY DATE_FORMAT(sale_date, '%Y-%m');
-```
+
+
 
 Results:
+<img width="776" height="381" alt="photo 2" src="https://github.com/user-attachments/assets/9f3da0fd-54e5-456c-a21e-21117daf7ada" />
 
 
-**Interpretation:** The running total demonstrates cumulative revenue growth reaching 118,500.00 by April 2025. Notable sales spike in January (50,000) followed by a decline in February and recovery in March, with April showing significantly lower sales that warrant investigation.
+Interpretation:The running total demonstrates cumulative revenue growth reaching 118,500.00 by April 2025. Notable sales spike in January (50,000) followed by a decline in February and recovery in March, with April showing significantly lower sales that warrant investigation.
 
-### 3. Navigation Functions (Image 2)
+ 3. Navigation Functions 
 
 Query: Month-over-Month Growth Analysis
 sql
@@ -118,9 +128,11 @@ FROM monthly_sales;
 ```
 
 Results:
+<img width="774" height="394" alt="photo 3" src="https://github.com/user-attachments/assets/d0883b9c-7fcd-4580-b1e5-d43da031594e" />
+
          
 
-**Interpretation:** The business shows high volatility with a dramatic 55% drop in February, strong 77.78% recovery in March, but concerning 85% collapse in April. This pattern suggests seasonal fluctuations or operational issues requiring immediate management attention.
+Interpretation: The business shows high volatility with a dramatic 55% drop in February, strong 77.78% recovery in March, but concerning 85% collapse in April. This pattern suggests seasonal fluctuations or operational issues requiring immediate management attention.
 
 4. Distribution Functions 
 
@@ -135,6 +147,8 @@ Query: Customer Spending Quartiles
 
 
 Results:
+<img width="774" height="317" alt="photo 4" src="https://github.com/user-attachments/assets/764a6408-4351-4c72-86b3-b32664729353" />
+
 
 
 Interpretation: Customer segmentation reveals significant spending disparity. Customer 1 (56,000) represents the premium segment suitable for VIP treatment. Customer 3 (40,000) shows medium-value potential for upselling. Customer 2 (22,500) requires engagement strategies to increase purchase frequency and order value.
@@ -158,59 +172,60 @@ FROM monthly_sales;
 ```
 
 Results:
+<img width="779" height="416" alt="photo 5" src="https://github.com/user-attachments/assets/ff88c2ef-f80a-46d8-8756-28ec46698e6e" />
+
 
 Interpretation: The moving average smooths out monthly volatility, revealing an underlying downward trend from 37,500 in March to 22,833 in April. This trend-smoothing technique helps identify that recent performance decline is not just a single-month anomaly but part of a concerning pattern.
 
-## Results Analysis
+Results Analysis
 
-### Descriptive Analysis (What Happened?)
-
-**Sales Patterns:**
+Descriptive Analysis (What Happened?)
+Sales Patterns:
 - Total revenue through April 2025: 118,500.00
 - Peak performance in January (50,000) followed by significant fluctuations
 - April represents the weakest month with only 6,000 in sales
 - Arabica Beans consistently lead product sales across regions
 
-**Customer Behavior:**
+Customer Behavior:
 - Clear three-tier customer segmentation with 2.5x spending gap between top and bottom
 - Geographic concentration in Europe and East Africa
 - Customer 1 contributes 47% of total revenue (high concentration risk)
 
-**Product Performance:**
+Product Performance:
 - Beverages category (Arabica Beans, Robusta Blend) drives 85% of revenue
 - Merchandise (Coffee Mug) shows lower adoption but represents diversification opportunity
 - Regional preferences show consistency, with premium products preferred
 
-### Diagnostic Analysis (Why Did It Happen?)
+ Diagnostic Analysis (Why Did It Happen?)
 
-**Volatility Drivers:**
+Volatility Drivers:
 - 85% April decline likely indicates seasonal downturn or supply chain disruption
 - February's 55% drop may correlate with post-holiday spending fatigue
 - Limited customer base (4 customers) creates high vulnerability to individual purchase patterns
 
-**Regional Dynamics:**
+Regional Dynamics:
 - Europe's higher sales suggest better market penetration and established distribution
 - East Africa's single-product focus (Arabica Beans) indicates early market stage or limited product awareness
 - Asia shows no sales activity in current data, representing untapped potential
 
-**Customer Concentration:**
+Customer Concentration:
 - Heavy reliance on Customer 1 creates business continuity risk
 - Bottom-tier customer (Customer 2) has potential for 2-3x growth to match peers
 - Loyalty program structure (Gold, Silver, Platinum) not correlating with actual spending patterns
 
-### Prescriptive Analysis (What Should We Do?)
+Prescriptive Analysis (What Should We Do?)
 
-**Immediate Actions:**
-1. **Address April Crisis:** Investigate root cause of 85% sales drop (supply issues, competition, customer churn) and implement recovery plan within 2 weeks
-2. **Diversify Customer Base:** Launch acquisition campaign to reduce dependency on Customer 1 from 47% to under 30% of revenue
-3. **Optimize Loyalty Program:** Realign loyalty tiers to match actual spending quartiles, offering Customer 1 premium benefits to ensure retention
+Immediate Actions:
+1. Address April Crisis: Investigate root cause of 85% sales drop (supply issues, competition, customer churn) and implement recovery plan within 2 weeks
+2. Diversify Customer Base: Launch acquisition campaign to reduce dependency on Customer 1 from 47% to under 30% of revenue
+3. Optimize Loyalty Program: Realign loyalty tiers to match actual spending quartiles, offering Customer 1 premium benefits to ensure retention
 
-**Strategic Initiatives:**
-1. **Geographic Expansion:** Activate Asia region with targeted product launches based on East Africa/Europe success patterns
-2. **Product Portfolio:** Expand merchandise line leveraging Coffee Mug's 6,000 performance as baseline; introduce complementary products
-3. **Seasonal Planning:** Develop promotional calendar addressing identified February and April weak periods with bundled offers or campaigns
+Strategic Initiatives
+1. Geographic Expansion: Activate Asia region with targeted product launches based on East Africa/Europe success patterns
+2. Product Portfolio: Expand merchandise line leveraging Coffee Mug's 6,000 performance as baseline; introduce complementary products
+3. Seasonal Planning: Develop promotional calendar addressing identified February and April weak periods with bundled offers or campaigns
 
-**Operational Improvements:**
+Operational Improvements:
 1. **Enhanced Analytics:** Implement real-time dashboards using these window functions to detect anomalies within 72 hours instead of month-end
 2. **Customer Engagement:** Create tiered marketing automation for quartile segments with personalized offers (10% for bottom tier, exclusive access for top)
 3. **Regional Strategy:** Deploy product education in East Africa to diversify beyond Arabica Beans; replicate Europe's multi-product success
