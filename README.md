@@ -26,8 +26,11 @@
 | **customers** | Customer master data | customer_id (PK), name, region, loyalty_level | 4 |
 | **products** | Product catalog | product_id (PK), name, category, unit_price | 3 |
 | **transactions** | Sales records | transaction_id (PK), customer_id (FK), product_id (FK), sale_date, quantity, amount | 4 |
+<img width="776" height="413" alt="photo 44" src="https://github.com/user-attachments/assets/f7103812-358a-40b9-b751-e710ecac0436" />
 
-### Table Structures
+
+
+ Table Structures
 
  Customers Table
 - `customer_id` (INT, PK, AUTO_INCREMENT)
