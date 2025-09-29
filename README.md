@@ -1,4 +1,4 @@
-<img width="367" height="322" alt="photo 88" src="https://github.com/user-attachments/assets/5612e1d3-4daa-414e-b836-2dcacd23b202" /># plsql-window-functions-Nice-Kevin-Niyomugabo
+
 # PL/SQL Window Functions - Customer Loyalty Analysis
 
 ## Business Problem Definition
