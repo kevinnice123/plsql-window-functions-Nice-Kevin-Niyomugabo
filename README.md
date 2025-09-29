@@ -264,10 +264,10 @@ Operational Improvements:
 
 All sources were properly cited above. The implementations and analysis in this project represent original work completed independently. No AI-generated content was copied without attribution or adaptation. All window function queries were written based on understanding of official documentation and adapted to the specific business context of this customer loyalty analysis system.
 
----
 
-**Course:** Database Development with PL/SQL (INSY 8311)  
-**Instructor:** Eric Maniraguha  
-**Submission Date:** September 29, 2025  
-**Student:** [Your Name]
+
+Course: Database Development with PL/SQL (INSY 8311)  
+Instructor: Eric Maniraguha  
+Submission Date:** September 29, 2025  
+Student:Niyomugabo Nice Kevin
 
