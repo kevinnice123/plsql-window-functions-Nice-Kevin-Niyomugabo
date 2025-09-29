@@ -55,7 +55,7 @@ Transactions Table
 
 
  Entity Relationship
-```
+
 customers (1) ----< (M) transactions (M) >---- (1) products
 <img width="367" height="322" alt="photo 88" src="https://github.com/user-attachments/assets/2fd29fbb-1990-4064-a031-997018a8df42" />
 
@@ -126,7 +126,7 @@ SELECT
     ROUND((total_sales - LAG(total_sales) OVER (ORDER BY sale_month)) / 
           NULLIF(LAG(total_sales) OVER (ORDER BY sale_month), 0) * 100, 2) AS growth_pct
 FROM monthly_sales;
-```
+
 
 Results:
 <img width="774" height="394" alt="photo 3" src="https://github.com/user-attachments/assets/d0883b9c-7fcd-4580-b1e5-d43da031594e" />
