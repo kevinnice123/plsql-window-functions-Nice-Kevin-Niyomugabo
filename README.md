@@ -259,6 +259,7 @@ Operational Improvements:
 8. Stack Overflow - Window Functions Community Q&A Archive
 9. Mode Analytics SQL Tutorial - Window Functions for Business Analytics
 10. Datacamp - Window Functions Course Materials
+11. https://docs.oracle.com/en/database/oracle/oracle-database/23/sqlrf/ROW_NUMBER.html
 
 ## Academic Integrity Statement
 
