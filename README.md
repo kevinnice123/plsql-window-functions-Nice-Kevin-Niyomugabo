@@ -173,7 +173,7 @@ SELECT
     total_sales,
     ROUND(AVG(total_sales) OVER (ORDER BY sale_month ROWS BETWEEN 2 PRECEDING AND CURRENT ROW), 2) AS moving_avg_3m
 FROM monthly_sales;
-```
+
 
 Results:
 <img width="779" height="416" alt="photo 5" src="https://github.com/user-attachments/assets/ff88c2ef-f80a-46d8-8756-28ec46698e6e" />
